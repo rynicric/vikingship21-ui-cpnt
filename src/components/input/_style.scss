@@ -1,0 +1,128 @@
+.ipt {
+  display: flex;
+  align-items: center;
+
+  input {
+    margin: 0;
+    padding: $ipt-padding-y $ipt-padding-x;
+    border: $ipt-border-width solid $gray-400;
+    box-shadow: $ipt-box-shadow;
+    background-color: $white;
+
+    border-radius: $ipt-border-radius;
+    // NOTE: This has no effect on <select>s in some browsers,
+    // due to the limited stylability of `<select>`s in CSS.
+
+    font-family: $ipt-font-family;
+    font-size: $ipt-font-size;
+    font-weight: $ipt-font-weight;
+    line-height: $line-height-base;
+    color: $gray-700;
+
+    transition: $ipt-transition;
+
+    &:hover,
+    &:focus {
+      border-color: $ipt-focus-border-color;
+      box-shadow: $ipt-focus-box-shadow;
+      color: $ipt-focus-color;
+      outline: 0;
+    }
+
+    &::placeholder {
+      color: $gray-300;
+      opacity: 1;
+      // Override Firefox's unusual default opacity;
+      // see https://github.com/twbs/bootstrap/pull/11526.
+    }
+
+    &:disabled,
+    &[readonly] {
+      background-color: $gray-200;
+      pointer-events: none;
+    }
+  }
+
+  .ipt-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    .icn {
+      position: absolute;
+      right: $ipt-padding-x;
+      color: $gray-700;
+    }
+    .icn + input {
+      padding-right: calc(#{$ipt-padding-x} * 2 + 1rem);
+    }
+    &:hover > .icn{
+      color: $ipt-focus-color;
+    }
+  }
+
+  .ipt-prepend,
+  .ipt-append {
+    padding: $ipt-padding-y $ipt-padding-x;
+    border-radius: $ipt-border-radius;
+    border: $ipt-border-width solid $gray-400;
+    background-color: $ipt-addon-background;
+
+    font-family: $ipt-font-family;
+    font-size: $ipt-font-size;
+    font-weight: $ipt-font-weight;
+    line-height: $line-height-base;
+    color: $gray-700;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .ipt-prepend {
+    border-right: 0;
+  }
+  .ipt-append {
+    border-left: 0;
+  }
+}
+
+.ipt-lg {
+  .ipt-inner input,
+  .ipt-prepend,
+  .ipt-append{
+    padding: $ipt-padding-y-lg $ipt-padding-x-lg;
+    border-radius: $ipt-border-radius-lg;
+    font-size: $ipt-font-size-lg;
+  }
+  .icn {
+    right: $ipt-padding-x-lg;
+  }
+  .icn + input {
+    padding-right: calc(#{$ipt-padding-x-lg} * 2 + 1rem);
+  }
+}
+
+.ipt-sm {
+  .ipt-inner input,
+  .ipt-prepend,
+  .ipt-append{
+    padding: $ipt-padding-y-sm $ipt-padding-x-sm;
+    border-radius: $ipt-border-radius-sm;
+    font-size: $ipt-font-size-sm;
+  }
+  .icn {
+    right: $ipt-padding-x-sm;
+  }
+  .icn + input {
+    padding-right: calc(#{$ipt-padding-x-sm} * 2 + 1rem);
+  }
+}
+
+.ipt-addon-append > .ipt-inner input,
+.ipt > .ipt-prepend {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.ipt-addon-prepend > .ipt-inner input,
+.ipt > .ipt-append {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

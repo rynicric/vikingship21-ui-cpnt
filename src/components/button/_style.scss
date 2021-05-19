@@ -1,0 +1,95 @@
+.btn {
+  position: relative;
+  display: inline-block;
+
+  margin: 0;
+  padding: $btn-padding-y $btn-padding-x;
+  border: $btn-border-width solid transparent;
+  border-radius: $btn-border-radius;
+  box-shadow: $btn-box-shadow;
+  background-color: transparent;
+
+  font-family: $font-family-base;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  color: $body-color;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  cursor: pointer;
+  transition: $btn-transition;
+
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+    box-shadow: none;
+    > * {
+      pointer-events: none;
+    }
+  }
+}
+
+.btn-lg {
+  padding: $btn-padding-y-lg $btn-padding-x-lg;
+  border-radius: $btn-border-radius-lg;
+  font-size: $btn-font-size-lg;
+}
+
+.btn-sm {
+  padding: $btn-padding-y-sm $btn-padding-x-sm;
+  border-radius: $btn-border-radius-sm;
+  font-size: $btn-font-size-sm;
+}
+
+@mixin btn-palette($background, $border, $color,
+                   $hover-background: lighten($background, 7.5%),
+                   $hover-border: lighten($border, 10%),
+                   $hover-color: $color) {
+  background-color: $background;
+  border-color: $border;
+  color: $color;
+  &:hover,
+  &.focus,
+  &:focus {
+    background-color: $hover-background;
+    border-color: $hover-border;
+    color: $hover-color;
+  }
+  &.disabled,
+  &:disabled {
+    background-color: $background;
+    border-color: $border;
+    color: $color;
+  }
+}
+
+.btn {
+  @include btn-palette($white, $gray-400, $body-color,
+                        $white, $primary, $primary);
+}
+
+.btn-primary {
+  @include btn-palette($primary, $primary, $white);
+}
+
+.btn-link {
+  box-shadow: none;
+
+  font-size: $font-weight-normal;
+  text-decoration: $link-decoration;
+  @include btn-palette(transparent, transparent, $btn-link-color,
+                       transparent, transparent, $btn-link-hover-color);
+
+  &:hover {
+    text-decoration: $link-hover-decoration;
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $btn-link-disabled-color;
+    pointer-events: none;
+  }
+}

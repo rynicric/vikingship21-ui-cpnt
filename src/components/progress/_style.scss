@@ -1,0 +1,31 @@
+.progbar {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: $progbar-border-radius;
+  background-color: $progbar-background;
+
+  .progbar-inner {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    border-top-left-radius: $progbar-border-radius;
+    border-bottom-left-radius: $progbar-border-radius;
+
+    transition: $progbar-bar-transition;
+
+    .progbar-text {
+      padding-right: 10px;
+      font-size: $progbar-font-size;
+      color: $progbar-bar-color;
+    }
+  }
+}
+
+@each $key, $val in $theme-colors {
+  .progbar-#{$key} {
+    background-color: $val;
+  }
+}

@@ -1,0 +1,82 @@
+.upload-list {
+  padding-left: 0;
+  list-style-type: none;
+
+  .upload-item {
+    position: relative;
+    box-sizing: border-box;
+    margin-top: 5px;
+    border-radius: $border-radius;
+    font-size: $font-size-sm;
+    line-height: $line-height-base;
+
+    transition: all .5s cubic-bezier(.55,0,.1,1);
+
+    &:first-child {
+      margin-top: 10px;
+    }
+
+    .upload-item-name {
+      margin-left: 8px;
+      margin-right: 40px;
+
+      .icn {
+        margin-right: 6px;
+        color: $gray-500;
+      }
+
+      &.upload-item-error {
+        color: $danger;
+        .icn { color: $danger; }
+      }
+    }
+
+    .upload-item-status {
+      display: block;
+      position: absolute;
+      right: 8px;
+      top:0;
+    }
+    .upload-item-actions {
+      display: none;
+      position: absolute;
+      right: 10px;
+      top:0;
+      cursor: pointer;
+    }
+
+    &:hover {
+      background-color: $gray-200;
+      .upload-item-status { display: none; }
+      .upload-item-actions { display: block; }
+    }
+  }
+}
+
+.upload-inner {
+  display: inline-block;
+}
+
+.dragger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: $border-width dashed $gray-300;
+  border-radius: $border-radius;
+  background-color: $gray-100;
+  padding: 20px;
+  width: 360px;
+  height: 180px;
+
+  cursor: pointer;
+
+  &:hover {
+    border: $border-width dashed $primary;
+  }
+
+  &.dragover {
+    border: $border-width dashed $primary;
+    background-color: rgba($primary, .2);
+  }
+}

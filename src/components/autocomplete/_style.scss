@@ -1,0 +1,44 @@
+.autocpl {
+  position: relative;
+}
+
+.autocpl-list {
+  position: absolute;
+  display: block;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 100;
+
+  width: 100%;
+  padding-left: 0;
+  border: $menu-border-width solid $menu-border-color;
+  box-shadow: $submenu-box-shadow;
+  background-color: $white;
+
+  list-style: none;
+  white-space: nowrap;
+
+  .icn {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    min-height: 75px;
+    color: $primary;
+    transform: translate(-50%, -50%);
+  }
+
+  .autocpl-list-item {
+    padding: $menu-item-padding-y $menu-item-padding-x;
+    color: $body-color;
+    cursor: pointer;
+
+    &.active {
+      background-color: $menu-item-active-color;
+      color: $white !important;
+    }
+
+    &:hover {
+      color: $menu-item-active-color;
+    }
+  }
+}
