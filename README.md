@@ -15,6 +15,8 @@ Of course, we also do the packing  for existing provided Icon, Transition and ot
 
 More surprises wait for you ...
 
+Jump for more details. https://rynicric.github.io/vikingship21-ui-cpnt
+
 
 Installation
 ---------------------------------------
